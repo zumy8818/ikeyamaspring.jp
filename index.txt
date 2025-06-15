@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>CafeStand FourSeason</title>
+</head>
+<body>
+  <h1>ようこそ！CafeStand FourSeasonへ</h1>
+  <p>このページはGitHub Pagesでホストされています。</p>
+</body>
+</html>
