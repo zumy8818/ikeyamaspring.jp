@@ -1,0 +1,242 @@
+/*
+ * about.css — お店についてページ専用スタイル
+ * カフェスタンドフォーシーズン
+ */
+
+/* ============================================================
+   お店紹介セクション
+   ============================================================ */
+.about-intro {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-light);
+}
+
+.about-intro-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-intro-image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: #e0ddd7;
+}
+
+.about-intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-intro-text .en-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.about-intro-text h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.about-intro-text p {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 2;
+}
+
+/* ============================================================
+   四季セクション
+   ============================================================ */
+.about-seasons {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.about-seasons-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.about-seasons h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.about-seasons p {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 2;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+/* 四季カード */
+.seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.season-card {
+  padding: 28px 20px;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-light);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.season-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.season-card h3 {
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.season-card p {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   産山村紹介セクション
+   ============================================================ */
+.about-village {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+}
+
+.about-village-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-village-text .en-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--color-primary-light);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.about-village-text h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  margin-bottom: 20px;
+  color: var(--color-white);
+}
+
+.about-village-text p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+}
+
+.about-village-image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.08);
+}
+
+.about-village-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   店主メッセージセクション
+   ============================================================ */
+.about-message {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+
+.about-message-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-message blockquote {
+  position: relative;
+  padding: 48px 40px;
+  background-color: var(--color-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-message blockquote::before {
+  content: '\201C';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: var(--color-primary);
+  opacity: 0.3;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  line-height: 1;
+}
+
+.about-message h2 {
+  font-size: clamp(18px, 2.5vw, 22px);
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.about-message p {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 2;
+}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media (max-width: 768px) {
+  .about-intro-inner,
+  .about-village-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .seasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-message blockquote {
+    padding: 40px 24px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,547 @@
+/*
+ * top.css — TOPページ専用スタイル
+ * カフェスタンドフォーシーズン
+ */
+
+/* ============================================================
+   ① ファーストビュー（#hero）
+   ============================================================ */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 背景写真 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../../images/hero/hero-main.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* オーバーレイ */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(44, 62, 53, 0.55) 0%,
+    rgba(58, 125, 140, 0.40) 100%
+  );
+}
+
+/* コンテンツ */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-white);
+  padding: 0 var(--container-padding);
+  max-width: 720px;
+}
+
+.hero-en-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(13px, 2vw, 16px);
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 17px);
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+  margin-bottom: 40px;
+  line-height: 1.9;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* スクロール誘導 */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.hero-scroll-icon {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.hero-scroll-icon::after {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 2px;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* ============================================================
+   ② お店の魅力3ポイント（#features）
+   ============================================================ */
+#features {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-light);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 40px 28px;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(58, 125, 140, 0.1);
+  border-radius: 50%;
+  color: var(--color-primary);
+  font-size: 28px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--color-text-mid);
+  line-height: 1.85;
+}
+
+/* ============================================================
+   ③ 人気メニュー（#popular-menu）
+   ============================================================ */
+#popular-menu {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg);
+}
+
+.popular-menu-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.menu-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-card-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #e8e4dd;
+  position: relative;
+}
+
+.menu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.menu-card:hover .menu-card-image img {
+  transform: scale(1.05);
+}
+
+/* 画像がない場合のプレースホルダー */
+.menu-card-image::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--color-text-light);
+  pointer-events: none;
+}
+
+.menu-card-body {
+  padding: 16px 20px 20px;
+}
+
+.menu-label {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.menu-label.popular   { background-color: var(--color-label-popular); }
+.menu-label.recommend { background-color: var(--color-label-recommend); }
+.menu-label.season    { background-color: var(--color-label-season); }
+.menu-label.new       { background-color: var(--color-label-new); }
+.menu-label.coming    { background-color: var(--color-label-coming); }
+
+.menu-card h3 {
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.menu-card p {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  line-height: 1.7;
+}
+
+.popular-menu-cta {
+  text-align: center;
+}
+
+/* ============================================================
+   ④ こだわり紹介（#commitment）
+   ============================================================ */
+#commitment {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-light);
+}
+
+.commitment-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.commitment-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.commitment-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 奇数番目: 画像左・テキスト右 */
+.commitment-item.reverse {
+  direction: rtl;
+}
+
+.commitment-item.reverse > * {
+  direction: ltr;
+}
+
+.commitment-image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: #e0ddd7;
+}
+
+.commitment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.commitment-text .en-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.commitment-text h3 {
+  font-size: clamp(18px, 2.5vw, 24px);
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.commitment-text p {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 2;
+}
+
+/* ============================================================
+   ⑤ 店舗の雰囲気（#gallery）
+   ============================================================ */
+#gallery {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg);
+}
+
+.gallery-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 12px;
+}
+
+/* 大きいカード */
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  background-color: #e0ddd7;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 62, 53, 0);
+  transition: background-color var(--transition-base);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover::after {
+  background-color: rgba(44, 62, 53, 0.2);
+}
+
+/* ============================================================
+   ⑥ アクセス案内（#access）
+   ============================================================ */
+#access {
+  padding: var(--section-padding) var(--container-padding);
+  background-color: var(--color-bg-light);
+}
+
+.access-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.access-map iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-md);
+  border: none;
+  display: block;
+}
+
+.access-info h3 {
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: var(--color-text);
+}
+
+.access-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.access-table th,
+.access-table td {
+  padding: 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  vertical-align: top;
+}
+
+.access-table th {
+  width: 100px;
+  color: var(--color-text-mid);
+  font-weight: 500;
+  font-family: 'Noto Sans JP', sans-serif;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+
+.access-table td {
+  color: var(--color-text);
+}
+
+.access-note {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   ⑦ Instagram導線（#instagram）
+   ============================================================ */
+#instagram {
+  padding: var(--section-padding) var(--container-padding);
+  background: linear-gradient(
+    135deg,
+    rgba(106, 174, 187, 0.18) 0%,
+    rgba(94, 140, 106, 0.15) 100%
+  );
+  text-align: center;
+}
+
+#instagram .section-heading {
+  margin-bottom: 32px;
+}
+
+#instagram .section-heading h2 {
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+#instagram .section-heading p {
+  font-size: 15px;
+}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .commitment-item {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .commitment-item.reverse {
+    direction: ltr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .gallery-item.large {
+    grid-column: span 2;
+  }
+
+  .access-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 140px;
+  }
+}

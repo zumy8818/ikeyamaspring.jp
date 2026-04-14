@@ -1,0 +1,578 @@
+/*
+ * style.css — 全ページ共通スタイル
+ * カフェスタンドフォーシーズン
+ */
+
+/* ============================================================
+   CSS カスタムプロパティ（デザイントークン）
+   ============================================================ */
+:root {
+  /* メインカラー */
+  --color-primary:       #3A7D8C;   /* 名水ブルー（やや深め） */
+  --color-primary-light: #6AAEBB;   /* 水面の明るさ */
+  --color-secondary:     #5E8C6A;   /* 深い森グリーン */
+  --color-accent:        #B8895A;   /* 木・土のブラウン */
+
+  /* 背景・ベース */
+  --color-bg:            #F7F5F0;   /* 温かみのあるオフホワイト */
+  --color-bg-light:      #FFFFFF;
+  --color-bg-dark:       #2C3E35;   /* 深い森色（フッター等） */
+
+  /* テキスト */
+  --color-text:          #2D2D2D;
+  --color-text-mid:      #5A5A5A;
+  --color-text-light:    #9A9A9A;
+  --color-white:         #FFFFFF;
+
+  /* ラベル */
+  --color-label-popular:   #C0392B;  /* 人気ラベル */
+  --color-label-recommend: #2980B9;  /* おすすめラベル */
+  --color-label-season:    #27AE60;  /* 季節限定ラベル */
+  --color-label-new:       #8E44AD;  /* NEWラベル */
+  --color-label-coming:    #7F8C8D;  /* 準備中ラベル */
+
+  /* ボーダー半径 */
+  --border-radius-sm:    4px;
+  --border-radius-md:    8px;
+  --border-radius-lg:    16px;
+
+  /* シャドウ */
+  --shadow-sm:           0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md:           0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg:           0 8px 40px rgba(0,0,0,0.16);
+
+  /* スペーシング */
+  --section-padding:     80px;
+  --section-padding-sp:  56px;
+  --container-max:       1080px;
+  --container-padding:   24px;
+
+  /* トランジション */
+  --transition-base:     0.3s ease;
+}
+
+/* ============================================================
+   ベーススタイル
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* 英字装飾フォント */
+.en-accent {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+/* コンテナ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ============================================================
+   共通セクション見出し
+   ============================================================ */
+.section-heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-heading .en-label {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--color-text);
+}
+
+.section-heading p {
+  margin-top: 12px;
+  color: var(--color-text-mid);
+  font-size: 15px;
+}
+
+/* ============================================================
+   共通ボタン
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: var(--border-radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #2f6874;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.btn-white:hover {
+  background-color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-instagram {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  padding: 16px 48px;
+}
+
+.btn-instagram:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================================
+   スクロールアニメーション
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   ページヘッダー（下層ページ共通）
+   ============================================================ */
+.page-header {
+  position: relative;
+  padding: 100px var(--container-padding) 64px;
+  text-align: center;
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-bg-dark) 100%);
+  opacity: 0.85;
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header .en-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.page-header h1 {
+  font-size: clamp(26px, 4vw, 40px);
+  font-family: 'Noto Serif JP', serif;
+}
+
+.page-header p {
+  margin-top: 12px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   ヘッダー
+   ============================================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+  padding: 0;
+}
+
+/* 透明ヘッダー（TOPページのhero上） */
+.site-header.is-top {
+  background-color: transparent;
+}
+
+/* スクロール後 or 下層ページ */
+.site-header.is-scrolled,
+.site-header.is-solid {
+  background-color: var(--color-bg-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  height: 72px;
+  gap: 24px;
+}
+
+/* ロゴ */
+.site-logo {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  line-height: 1.2;
+  transition: color var(--transition-base);
+}
+
+.logo-ja {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.2;
+  transition: color var(--transition-base);
+}
+
+/* スクロール後のロゴ色 */
+.site-header.is-scrolled .logo-en,
+.site-header.is-solid .logo-en {
+  color: var(--color-primary);
+}
+
+.site-header.is-scrolled .logo-ja,
+.site-header.is-solid .logo-ja {
+  color: var(--color-text-mid);
+}
+
+/* グローバルナビ */
+.global-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.global-nav ul {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.global-nav a {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.9);
+  transition: color var(--transition-base);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.global-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background-color: var(--color-primary-light);
+  transition: right var(--transition-base);
+}
+
+.global-nav a:hover::after,
+.global-nav a.is-current::after {
+  right: 0;
+}
+
+.global-nav a.is-current {
+  color: var(--color-primary-light);
+}
+
+/* スクロール後のナビ色 */
+.site-header.is-scrolled .global-nav a,
+.site-header.is-solid .global-nav a {
+  color: var(--color-text-mid);
+}
+
+.site-header.is-scrolled .global-nav a.is-current,
+.site-header.is-solid .global-nav a.is-current {
+  color: var(--color-primary);
+}
+
+/* Instagramアイコン（ヘッダー） */
+.header-instagram {
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+  transition: color var(--transition-base), transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.header-instagram:hover {
+  color: var(--color-white);
+  transform: scale(1.15);
+}
+
+.site-header.is-scrolled .header-instagram,
+.site-header.is-solid .header-instagram {
+  color: var(--color-text-mid);
+}
+
+.site-header.is-scrolled .header-instagram:hover,
+.site-header.is-solid .header-instagram:hover {
+  color: var(--color-primary);
+}
+
+/* ハンバーガーボタン（スマホのみ表示） */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.site-header.is-scrolled .hamburger span,
+.site-header.is-solid .hamburger span {
+  background-color: var(--color-text);
+}
+
+/* ハンバーガーアクティブ状態 */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.site-footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-white);
+  padding: 64px 0 0;
+}
+
+.footer-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.footer-logo .footer-name-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.footer-logo .footer-name-ja {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+}
+
+.footer-info p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary-light);
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: 20px var(--container-padding);
+  text-align: center;
+}
+
+.footer-copyright p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   レスポンシブ：タブレット以下
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: var(--section-padding-sp);
+  }
+
+  /* ヘッダー */
+  .global-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+  }
+
+  .global-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .global-nav ul {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .global-nav a {
+    font-size: 18px;
+    color: var(--color-white);
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 10;
+  }
+
+  /* ハンバーガーはis-openの上に表示 */
+  .site-header {
+    background-color: var(--color-bg-dark);
+  }
+
+  /* フッター */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================================
+   ユーティリティ
+   ============================================================ */
+
+/* テキスト */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* 表示制御 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
