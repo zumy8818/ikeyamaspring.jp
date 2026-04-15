@@ -4,3 +4,6 @@ Thumbs.db
 node_modules/
 .env
 .vscode/settings.json
+
+# 元画像素材（GitHubにはアップしない）
+assets/
