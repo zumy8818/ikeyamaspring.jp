@@ -1,0 +1,70 @@
+/*
+ * imgguide.css — 画像番号ガイドオーバーレイ
+ *
+ * 【使い方】
+ *   ブラウザで各ページを開くと番号バッジが表示されます。
+ *   番号に対応する画像ファイル名を指定してください。
+ *
+ * 【削除するとき】
+ *   画像の指定が完了したら、各HTMLの以下の行を削除してください：
+ *   <link rel="stylesheet" href="css/imgguide.css">
+ */
+
+/* ============================================================
+   バッジ共通スタイル
+   ============================================================ */
+.img-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(58, 125, 140, 0.93);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 200;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ファイルパス表示 */
+.img-badge small {
+  display: block;
+  font-size: 11px;
+  font-style: normal;
+  opacity: 0.88;
+  font-family: monospace;
+  letter-spacing: 0.03em;
+  margin-top: 3px;
+}
+
+/* ============================================================
+   コンテナの position 補正
+   ============================================================ */
+.menu-card-image,
+.commitment-image,
+.gallery-item,
+.about-intro-image,
+.about-village-image,
+.menu-list-image {
+  position: relative;
+}
+
+/* ============================================================
+   ヒーロー背景（No.1）専用
+   ============================================================ */
+.hero-badge {
+  top: 160px;       /* ヘッダーの下 */
+  transform: translateX(-50%);
+  font-size: 30px;
+  padding: 14px 28px;
+  z-index: 10;
+}
